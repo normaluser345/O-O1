@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Love Messages for My Wife</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: pink;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-size: 36px;
+}
+
+p {
+  color: white;
+  font-size: 24px;
+}
+</style>
+<script>
+// An array of love messages for your wife
+var messages = [
+  "You are what my heart has always needed—you and me, together at home, two souls as one.",
+  "I will love you forever.",
+  "To my special wife. My love for you is never-ending; my prayers were answered when I met you.",
+  "You are the air that I breathe.",
+  "I found the meaning of my life because of you, and I promise to love you forever.",
+  "You are my best friend.",
+  "You are the reason I became stronger, but still, you are my weakness.",
+  "I would do anything for you to make you happy.",
+  "I would give you the sun, the moon, the stars, and my whole heart forever.",
+  "A good morning note to say how much I love you!",
+  "There is no better feeling than holding you in my arms.",
+  "My prayers were answered the day that I met you.",
+  "You are a blessing in my life, and I will be lucky to call you my partner for the rest of our lives.",
+  "Your smile is my everything.",
+  "A goodnight note to say how in love with you I am!",
+  "I love you now and forever.",
+  "I will love you until I die, and if there is life after that, I will continue to love you then.",
+  "The best love is the kind that awakens the soul and makes us reach for more, that plants a fire in our hearts and brings peace to our minds. And that’s what you’ve given me. That’s what I’d hoped to give you forever",
+  "I don’t need the heavens or the stars. I don’t need gold or riches. I gained everything I could ever want the day that I met you: I gained a steady hand, a kind soul, and someone who I will fall asleep with and wake up next to for the rest of my life.",
+  "You are my heart – you are my everything."
+];
+
+// A function that returns a random message from the array
+function getRandomMessage() {
+  var index = Math.floor(Math.random() * messages.length);
+  return messages[index];
+}
+
+// A function that displays a new message every day
+function displayMessage() {
+  // Get the current date
+  var today = new Date();
+  
+  // Get the element where the message will be shown
+  var messageElement = document.getElementById("message");
+  
+  // Check if there is a message stored for today
+  var storedMessage = localStorage.getItem(today.toDateString());
+  
+  // If there is no message stored for today
+  if (storedMessage === null) {
+    // Get a random message from the array
+    var newMessage = getRandomMessage();
+    
+    // Store the message for today
+    localStorage.setItem(today.toDateString(), newMessage);
+    
+    // Display the message
+    messageElement.innerHTML = newMessage;
+    
+    // If there is a message stored for today
+    } else {
+      // Display the stored message
+      messageElement.innerHTML = storedMessage;
+    }
+}
+
+// Call the displayMessage function when the page loads
+window.onload = displayMessage;
+
+</script>
+</head>
+<body>
+<h1>Love Messages for My Wife</h1>
+<p id="message"></p>
+</body>
+</html>
